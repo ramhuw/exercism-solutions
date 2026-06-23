@@ -1,0 +1,23 @@
+type allergen = Eggs
+              | Peanuts
+              | Shellfish
+              | Strawberries
+              | Tomatoes
+              | Chocolate
+              | Pollen
+              | Cats
+
+let allergic_to n food =
+    let score = match food with
+                | Eggs -> 1
+                | Peanuts -> 2
+                | Shellfish -> 4
+                | Strawberries -> 8
+                | Tomatoes -> 16
+                | Chocolate -> 32
+                | Pollen -> 64
+                | Cats -> 128
+    in n land score <> 0
+
+let allergies n =
+    List.filter (fun food -> allergic_to n food) [Eggs; Peanuts; Shellfish; Strawberries; Tomatoes; Chocolate; Pollen; Cats]
